@@ -4,7 +4,7 @@ const axios = require("axios"); // module that will allow you to make a request
 exports.homeRoutes = (req, res) => {
   // make request to the /api/users
   axios
-    .get(process.env.PORT || "http://localhost:8080/api/users")
+    .get("process.env.PORT/api/users" || "http://localhost:8080/api/users")
     .then(function (response) {
       res.render("index", { users: response.data });
     })
