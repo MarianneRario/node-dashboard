@@ -50,7 +50,6 @@ a {
 
 .border-shadow {
   border: 1px solid var(--border-btn);
-  box-shadow: 1px 3px 10px var(--box-shadow);
   border-radius: 0.3em;
 }
 
@@ -100,7 +99,7 @@ a {
 }
 
 #site-main .border-shadow:hover {
-  background-color: #7dec7d;
+  background-color: var(--box-shadow);
 }
 
 #site-main .container form {
@@ -121,14 +120,19 @@ table {
 }
 
 .table td > a.btn {
-  padding: 1em 1em;
+  padding: 0.3em 1em;
   font-size: 1.1em;
   margin: 0 0.2em;
 }
 
-/* .table tr:hover {
-  background-color: #ffceeb;
-} */
+.table td > a.btn:hover {
+  background-color: var(--box-shadow);
+  cursor: pointer;
+}
+
+.table tr:hover {
+  background-color: #c8f5c0;
+}
 
 .table .thead-dark th {
   color: #ffffff;
