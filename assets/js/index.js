@@ -12,7 +12,6 @@ $("#update_user").submit(function (event) {
   console.log(data);
   var request = {
     url:
-      `process.env.PORT/api/users/${data.id}` ||
       `http://localhost:8080/api/users/${data.id}`,
     method: "PUT",
     data: data,
@@ -28,7 +27,7 @@ if (window.location.pathname == "/") {
   $ondelete.click(function () {
     var id = $(this).attr("data-id");
     var request = {
-      url: `process.env.PORT/api/users/${id}` || `http://localhost:8080/api/users/${id}`,
+      url: `http://localhost:8080/api/users/${id}`,
       method: "DELETE",
     };
 
