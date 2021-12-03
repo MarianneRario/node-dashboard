@@ -1,7 +1,16 @@
-// this file will allow rendering of files using router
+// (render.js) this file will allow rendering of files using router
+const axios = require("axios"); // module that will allow you to make a request
 
 exports.homeRoutes = (req, res) => {
-  res.render("index");
+  // make request to the /api/users
+  axios
+    .get("http://localhost:8080/api/users")
+    .then(function (response) {
+      res.render("index", { users: response.data });
+    })
+    .catch((err) => {
+      res.send(err);
+    });
 };
 
 exports.add_user = (req, res) => {
@@ -9,5 +18,15 @@ exports.add_user = (req, res) => {
 };
 
 exports.update_user = (req, res) => {
-  res.render("update_user");
+  axios
+    .get("http://localhost:8080/api/users", {
+      params: { id: req.query.id },
+    })
+    .then(function (userdata) {
+      res.render("update_user", {user:userdata.data});
+    })
+
+  .catch((err) => {
+      res.send(err);
+    });
 };
