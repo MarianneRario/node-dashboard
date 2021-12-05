@@ -1,10 +1,10 @@
-const express = require("express");
+const express = require("express"); //import express module
 const morgan = require("morgan");
 const bodyparser = require("body-parser");
 const path = require("path");
 const connectDB = require("./server/database/connection");
 
-const app = express();
+const app = express(); //initializing express module
 
 const PORT = process.env.PORT || 8080;
 
@@ -28,14 +28,7 @@ app.use("/js", express.static(path.resolve(__dirname, "assets/js")));
 //load routes
 app.use("/", require("./server/routes/router"));
 
+// will listen to the port number 8080 or heroku port
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
-
-app.use(express.static(path.join(__dirname, "client", "build")));
-// required to serve SPA on heroku production without routing problems; it will skip only 'api' calls
-if (process.env.NODE_ENV === "production") {
-  app.get(/^((?!(api)).)*$/, (req, res) => {
-    res.sendFile(path.join(__dirname, "client/build", "index.html"));
-  });
-}

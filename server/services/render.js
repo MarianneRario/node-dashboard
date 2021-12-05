@@ -4,7 +4,7 @@ const axios = require("axios"); // module that will allow you to make a request
 exports.homeRoutes = (req, res) => {
   // make request to the /api/users
   axios
-    .get("/api/users")
+    .get("https://acc-dashboard.herokuapp.com/api/users")
     .then(function (response) {
       res.render("index", { users: response.data });
     })
@@ -19,7 +19,7 @@ exports.add_user = (req, res) => {
 
 exports.update_user = (req, res) => {
   axios
-    .get("/api/users", {
+    .get("https://acc-dashboard.herokuapp.com/api/users", {
       params: { id: req.query.id },
     })
     .then(function (userdata) {
