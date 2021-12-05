@@ -10,8 +10,10 @@ $("#update_user").submit(function (event) {
     data[n["name"]] = n["value"];
   });
   console.log(data);
+  
   var request = {
-    url: `process.env.PORT/api/users/${data.id}`,
+    url:
+      `/api/users/${data.id}`,
     method: "PUT",
     data: data,
   };
@@ -26,7 +28,7 @@ if (window.location.pathname == "/") {
   $ondelete.click(function () {
     var id = $(this).attr("data-id");
     var request = {
-      url: `process.env.PORT/api/users/${id}`,
+      url: `/api/users/${id}`,
       method: "DELETE",
     };
 

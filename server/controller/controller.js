@@ -1,5 +1,4 @@
 var UserDB = require("../model/model");
-var autoIncrement = require("mongodb-autoincrement");
 
 // create and save new user
 exports.create = (req, res) => {
