@@ -31,6 +31,6 @@ var schema = new mongoose.Schema(
   { versionKey: false }
 );
 
-const UserDB = mongoose.model("user_accounts", schema);
+const UserDB = mongoose.model("usr_accnt", schema);
 
 module.exports = UserDB;
