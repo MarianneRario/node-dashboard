@@ -1,21 +1,24 @@
-var UserDB = require("../model/model");
+var UserDB = require("../model/model"); //require the schema from model folder
 
 // create and save new user
 exports.create = (req, res) => {
   //validate request
   if (!req.body) {
-    res.status(400).send({ message: "Content cannot be empty!" });
-    return;
+    return res.status(400).send({ message: "Content cannot be empty!" });
+    
+  } else if (!req.body.name || !req.body.email || !req.body.password) {
+    return res.status(400).send({ message: "Incomplete input parameters!" });
+
   }
 
   //create a new user
   const user = new UserDB({
-    // _id: autoIncrement,
     name: req.body.name,
     email: req.body.email,
     password: req.body.password,
     timestamp: Date.now(),
   });
+
   //save user in db
   user
     .save(user)
@@ -64,6 +67,8 @@ exports.update = (req, res) => {
     return res.status(400).send({
       message: err.message || "Error: Data to update cannot be empty!",
     });
+  } else if (!req.body.name || !req.body.email || !req.body.password) {
+    return res.status(400).send({ message: "Incomplete input parameters!" });
   }
   const id = req.params.id;
   UserDB.findByIdAndUpdate(id, req.body, { useFindAndModify: false })

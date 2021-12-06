@@ -25,6 +25,20 @@ app.use("/css", express.static(path.resolve(__dirname, "assets/css")));
 app.use("/img", express.static(path.resolve(__dirname, "assets/img")));
 app.use("/js", express.static(path.resolve(__dirname, "assets/js")));
 
+/**
+  SEPARATE THIS ROUTES TO DEDICATED ROUTER FILES
+  (transfer this to router.js)
+  app.get("/", (req, res) => {
+  res.render("index");
+  });
+  app.get("/add-user", (req, res) => {
+    res.render("add_user");
+  });
+  app.get("/update-user", (req, res) => {
+    res.render("update_user");
+  });
+ */
+
 //load routes
 app.use("/", require("./server/routes/router"));
 

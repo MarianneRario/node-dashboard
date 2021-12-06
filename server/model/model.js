@@ -2,9 +2,6 @@ const mongoose = require("mongoose");
 
 var schema = new mongoose.Schema(
   {
-    // _id: {
-    //   type: Number,
-    // },
     name: {
       type: String,
       required: true,
@@ -34,6 +31,6 @@ var schema = new mongoose.Schema(
   { versionKey: false }
 );
 
-const UserDB = mongoose.model("test_db", schema);
+const UserDB = mongoose.model("user_accounts", schema);
 
 module.exports = UserDB;

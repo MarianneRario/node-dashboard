@@ -1,4 +1,14 @@
 const express = require("express");
+
+/**
+ * Note: Don't initialize a new app variable like this:
+ * const app = express()
+ * because it will create a new app.
+ * Instead of const app, call a method of express Router
+ * const route = express.Router() -> this will allows us to create different router
+ * in a separate file.
+ */
+
 const route = express.Router(); // allows to create different router on different files
 
 const services = require("../services/render");
@@ -32,3 +42,23 @@ route.delete("/api/users/:id", controller.delete);
 
 // export routes
 module.exports = route;
+
+///////////////////// COMMENTS /////////////////////
+
+
+/**
+ app.get("/add-user", (req, res) => {
+  res.render("add_user");
+});
+
+route.get("/add-user", (req, res) => {
+  res.render("add_user");
+});
+
+exports.homeRoutes =  (req, res) => {
+  res.render("add_user");
+
+route.get("/add-user", services.homeRoutes);
+});
+
+ */
