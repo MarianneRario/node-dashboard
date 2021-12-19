@@ -42,17 +42,17 @@ $("#update_user").submit(function (event) {
   });
   console.log(data);
 
-  var request = {
-    url: `https://acc-dashboard.herokuapp.com/api/users/${data.id}`,
-    method: "PUT",
-    data: data,
-  };
-
   // var request = {
-  //   url: `http://localhost:8080/api/users/${data.id}`,
+  //   url: `https://acc-dashboard.herokuapp.com/api/users/${data.id}`,
   //   method: "PUT",
   //   data: data,
   // };
+
+  var request = {
+    url: `http://localhost:8080/api/users/${data.id}`,
+    method: "PUT",
+    data: data,
+  };
 
   $.ajax(request).done(function (response) {
     alert("User successfully updated!");
@@ -63,15 +63,15 @@ if (window.location.pathname == "/") {
   $ondelete = $(".table tbody td a.delete");
   $ondelete.click(function () {
     var id = $(this).attr("data-id");
-    var request = {
-      url: `https://acc-dashboard.herokuapp.com/api/users/${id}`,
-      method: "DELETE",
-    };
-
     // var request = {
-    //   url: `http://localhost:8080/api/users/${id}`,
+    //   url: `https://acc-dashboard.herokuapp.com/api/users/${id}`,
     //   method: "DELETE",
     // };
+
+    var request = {
+      url: `http://localhost:8080/api/users/${id}`,
+      method: "DELETE",
+    };
 
     // ask for user permission
 

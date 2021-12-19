@@ -31,6 +31,6 @@ var schema = new mongoose.Schema(
   { versionKey: false }
 );
 
-const UserDB = mongoose.model("usr_accnt", schema);
-
+// const UserDB = mongoose.model("usr_accnt", schema);
+const UserDB = mongoose.model("locked_accounts", schema);
 module.exports = UserDB;
